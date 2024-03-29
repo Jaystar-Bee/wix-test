@@ -46,6 +46,10 @@ export default [
   },
   {
     name: COMPONENTS.CARD,
+    title: {
+      text: "New Arrival",
+      color: "#000000",
+    },
     cards: [
       {
         button: {
@@ -101,7 +105,7 @@ export default [
   },
   {
     name: COMPONENTS.VIDEO,
-    sectioName: {
+    sectionName: {
       text: "Tagline",
       color: "#000000",
     },

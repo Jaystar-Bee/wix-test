@@ -13,4 +13,7 @@ export enum FormType {
   PRODUCT = "productform",
   BUTTON = "buttonform",
   DESCRIPTION = "descriptionform",
+  CARD = "card",
+  OTHERS = "others",
+  HEADER = "header",
 }

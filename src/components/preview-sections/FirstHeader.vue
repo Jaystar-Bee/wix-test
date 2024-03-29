@@ -1,37 +1,19 @@
 <script setup>
-import { FormType } from "./../../types/enums";
-import { inject } from "vue";
-
 const props = defineProps({
   data: Object,
-  index: Number,
 });
-const setCurrentForm = inject("setCurrentDetails");
-function setForm(event, key, formType, data) {
-  event.stopPropagation();
-  const formDetail = {
-    data,
-    sectionIndex: props?.index,
-    sectionName: props?.data?.name,
-    cardIndex: null,
-    formType,
-    dataKey: key,
-  };
-  setCurrentForm(formDetail);
-}
 </script>
 
 <template>
   <header>
     <nav
-      @click="setForm($event, null, FormType.HEADER, data)"
       class="py-4 px-5 flex items-center justify-between"
       :style="{ backgroundColor: data?.bgColor, color: data?.textColor }"
     >
       <router-link to="/">
         <h2 v-if="data?.logo">{{ data?.logo }}</h2>
       </router-link>
-      <ul class="flex items-center space-x-8 pointer-events-none">
+      <ul class="flex items-center space-x-8">
         <li v-for="link in data?.links" :key="link?.name">
           <a
             v-if="link?.name"

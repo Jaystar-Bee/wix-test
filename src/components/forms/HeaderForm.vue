@@ -1,36 +1,19 @@
 <script setup>
 import { reactive, watch } from "vue";
 import LinkForm from "./LinkForm.vue";
-import { reactive, watch } from "vue";
 
-const emits = defineEmits(["setHeader"]);
-const formData = reactive({
-  logo: "LOGO",
-  bgColor: "#000000",
-  textColor: "#ffffff",
-  linkColor: "#ffffff",
-  links: [
-    {
-      name: "Products",
-      link: "/",
-    },
-    {
-      name: "Instagram",
-      link: "https://instagram.com",
-    },
-    {
-      name: "Twitter",
-      link: "https://instagram.com",
-    },
-    {
-      name: "Twitch",
-      link: "https://instagram.com",
-    },
-  ],
+const props = defineProps({
+  data: Object,
 });
 
+const emits = defineEmits(["updateData"]);
+let formData = reactive(props?.data);
+
 watch(formData, (val) => {
-  emits("setHeader", "header", val);
+  emits("updateData", val);
+});
+watch(props, (val) => {
+  formData = props?.data;
 });
 
 function setNavName(name, index) {
@@ -92,7 +75,7 @@ function addToLink() {
         id="link_color"
       />
     </div>
-    <div class="mt-6">
+    <div class="mt-20">
       <div class="flex items-center space-x-10">
         <h2>Links</h2>
         <i
@@ -107,6 +90,9 @@ function addToLink() {
         :data="data"
         :index="index"
         class="mt-2"
+        :class="{
+          hidden: index === 0,
+        }"
         @setNavName="setNavName"
         @setNavLink="setNavLink"
         @delete="deleteLink"

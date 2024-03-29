@@ -1,47 +1,16 @@
 <script setup>
-import { FormType } from "./../../types/enums";
-import { useGeneralStore } from "./../../stores";
-import { inject } from "vue";
 const props = defineProps({
   data: Object,
   index: Number,
 });
-const generalStore = useGeneralStore();
-
-const setCurrentForm = inject("setCurrentDetails");
-function setForm(event, key, formType, data, cardIndex) {
-  event?.stopPropagation();
-  const formDetail = {
-    data,
-    sectionIndex: props?.index,
-    sectionName: props?.data?.name,
-    cardIndex,
-    formType,
-    dataKey: key,
-  };
-  setCurrentForm(formDetail);
-}
-
-function deleteCard(event, cardName, index) {
-  event.stopPropagation();
-  const data = {
-    sectionName: props?.data?.name,
-    sectionIndex: props?.index,
-    cardName,
-    index,
-  };
-  generalStore.deleteCard(data);
-  setCurrentForm(undefined);
-}
 </script>
 
 <template>
   <div class="py-20 px-10">
-    <ul class="grid grid-cols-3 gap-4">
+    <ul class="grid grid-cols-4 gap-4">
       <li
         v-for="(item, index) in data?.others"
         :key="index"
-        @click="setForm($event, 'others', FormType.OTHERS, item, index)"
         class="flex items-start gap-3 py-10 px-4 border-r last:border-r-0"
       >
         <img :src="item?.image" alt="" class="w-8" />

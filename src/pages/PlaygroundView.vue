@@ -6,14 +6,15 @@ import FileForm from "./../components/forms/FileForm.vue";
 import ButtonForm from "./../components/forms/ButtonForm.vue";
 import DescriptionForm from "./../components/forms/DescriptionForm.vue";
 import popover from "./../components/popover.vue";
+import CardForm from "./../components/forms/CardForm.vue";
+import HeaderForm from "./../components/forms/HeaderForm.vue";
+import OthersForm from "./../components/forms/OthersForm.vue";
 
 import { ref, shallowRef, onMounted, computed, provide } from "vue";
 import { useGeneralStore } from "./../stores";
 import { FormType } from "../types/enums";
 
 const generalStore = useGeneralStore();
-
-// const currentForm = shallowRef();
 
 const currentDetails = ref();
 function setCurrentDetails(data) {
@@ -59,6 +60,23 @@ const currentForm = computed(() => {
     currentDetails.value?.formType === FormType.DESCRIPTION
   ) {
     return DescriptionForm;
+  } else if (
+    currentDetails.value &&
+    currentDetails.value?.formType === FormType.CARD
+  ) {
+    return CardForm;
+  } else if (
+    currentDetails.value &&
+    currentDetails.value?.formType === FormType.OTHERS
+  ) {
+    return OthersForm;
+  } else if (
+    currentDetails.value &&
+    currentDetails.value?.formType === FormType.HEADER
+  ) {
+    return HeaderForm;
+  } else {
+    return null;
   }
 });
 </script>
@@ -80,7 +98,7 @@ const currentForm = computed(() => {
           >
             <SectionCover :comp="comp" :index="index" />
             <div
-              class="absolute top-0 right-0 settings w-max overflow-visible hidden"
+              class="absolute top-0 right-0 settings w-max h-max overflow-visible hidden"
             >
               <div class="absolute top-1 right-1 flex gap-4">
                 <popover :name="comp?.name" :index="index" isTop />

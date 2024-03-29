@@ -11,12 +11,18 @@ export const useGeneralStore = defineStore("general", {
   getters: {},
   actions: {
     setData(formDetail: any) {
-      const section = this.getSection(formDetail?.sectionName);
+      // let section = this.getSection(formDetail?.sectionName);
+      let section = this.data[formDetail?.sectionIndex];
+      if (!formDetail?.dataKey) {
+        section = formDetail?.data;
+        this.data[formDetail?.sectionIndex] = section;
+        return;
+      }
 
-      if (!cardIndex) {
+      if (formDetail?.cardIndex < 0 || formDetail?.cardIndex === null) {
         section[formDetail?.dataKey] = formDetail?.data;
       } else {
-        section[cardIndex][formDetail?.dataKey] = formDetail?.data;
+        section[formDetail?.dataKey][formDetail?.cardIndex] = formDetail?.data;
       }
 
       this.data[formDetail?.sectionIndex] = section;
@@ -44,6 +50,19 @@ export const useGeneralStore = defineStore("general", {
     },
     deleteSection(index: number) {
       this.data.splice(index, 1);
+    },
+    deleteCard(data: any) {
+      // const section = this.getSection(data?.sectionName);
+      const section = this.data[data?.sectionIndex];
+      section[data?.cardName]?.splice(data?.index, 1);
+      this.data[data?.sectionIndex] = section;
+    },
+    addToCard(detail: any) {
+      // const section = this.getSection(data?.sectionName);
+      console.log(detail);
+      const section = this.data[detail?.sectionIndex];
+      section[detail?.cardName]?.push(detail?.formData);
+      this.data[detail?.sectionIndex] = section;
     },
   },
 });

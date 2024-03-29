@@ -4,10 +4,15 @@ const emits = defineEmits(["updateData"]);
 const props = defineProps({
   data: Object,
 });
-const formData = reactive(props?.data);
+
+// FORM
+let formData = reactive(props?.data);
 
 watch(formData, (val) => {
   emits("updateData", formData);
+});
+watch(props, (val) => {
+  formData = props?.data;
 });
 </script>
 

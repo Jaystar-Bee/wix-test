@@ -13,7 +13,7 @@ const actualProduct = computed(() => {
 </script>
 
 <template>
-  <div>
+  <div v-if="actualProduct?.image">
     <div v-if="actualProduct?.name">
       <div class="aspect-[6/8] bg-gray-200">
         <img

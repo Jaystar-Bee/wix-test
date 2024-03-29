@@ -1,24 +1,8 @@
 <script setup>
-import { FormType } from "./../../types/enums";
-import { inject } from "vue";
-
 const props = defineProps({
   data: Object,
   index: Number,
 });
-const setCurrentForm = inject("setCurrentDetails");
-function setForm(event, key, formType, data) {
-  event.stopPropagation();
-  const formDetail = {
-    data,
-    sectionIndex: props?.index,
-    sectionName: props?.data?.name,
-    cardIndex: null,
-    formType,
-    dataKey: key,
-  };
-  setCurrentForm(formDetail);
-}
 </script>
 
 <template>
@@ -27,9 +11,6 @@ function setForm(event, key, formType, data) {
       <div class="text-center w-[50%] mx-auto">
         <h4
           v-if="data?.sectionName?.text"
-          @click="
-            setForm($event, 'sectionName', FormType.TEXT, data?.sectionName)
-          "
           class="uppercase font-semibold"
           :style="{ color: data?.sectionName?.color }"
         >
@@ -37,7 +18,6 @@ function setForm(event, key, formType, data) {
         </h4>
         <h1
           v-if="data?.title?.text"
-          @click="setForm($event, 'title', FormType.TEXT, data?.title)"
           class="text-3xl font-medium py-2"
           :style="{ color: data?.title?.color }"
         >
@@ -45,14 +25,6 @@ function setForm(event, key, formType, data) {
         </h1>
         <p
           v-if="data?.description?.text"
-          @click="
-            setForm(
-              $event,
-              'description',
-              FormType.DESCRIPTION,
-              data?.description
-            )
-          "
           :style="{ color: data?.description?.color }"
         >
           {{ data?.description?.text }}
@@ -60,10 +32,9 @@ function setForm(event, key, formType, data) {
       </div>
     </div>
 
-    <div class="w-full aspect-[16/9] relative mt-8 bg-gray-600">
+    <div class="w-full aspect-[16/9] relative mt-8 bg-black">
       <video
         :src="data?.video?.src"
-        @click="setForm($event, 'video', FormType.FILE, data?.video)"
         autoplay
         loop
         class="w-full h-full object-contain"
