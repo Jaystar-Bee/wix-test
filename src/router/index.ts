@@ -8,12 +8,13 @@ const router = createRouter({
       path: "/",
       alias: "/home",
       name: "Home",
-      component: PlayGround,
+      component: () => import("./../pages/TestView.vue"),
     },
     {
       path: "/test",
       name: "Test",
-      component: () => import("./../pages/TestView.vue"),
+      component: PlayGround,
+
     },
   ],
 });

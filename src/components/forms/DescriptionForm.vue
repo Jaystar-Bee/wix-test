@@ -20,15 +20,7 @@ watch(props, (val) => {
   <form action="post">
     <div>
       <label for="text" class="font-semibold">Text</label>
-      <textarea
-        id="text"
-        v-model="formData.text"
-        class="block border px-2 py-1 w-[90%] rounded-md mt-2"
-      ></textarea>
-    </div>
-    <div>
-      <label for="color" class="font-semibold">Color</label>
-      <input type="color" id="color" v-model="formData.color" class="block" />
+      <textarea id="text" v-model="formData.text" class="block border px-2 py-1 w-[90%] rounded-md mt-2"></textarea>
     </div>
   </form>
 </template>

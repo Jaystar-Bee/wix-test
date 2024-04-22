@@ -1,5 +1,6 @@
 <script setup>
 import { useProductStore } from "./../../stores/product";
+import useColor from "../../composables/useColor";
 import { computed } from "vue";
 
 const productStore = useProductStore();
@@ -15,15 +16,11 @@ const actualProduct = computed(() => {
 <template>
   <div v-if="actualProduct?.image">
     <div v-if="actualProduct?.name">
-      <div class="aspect-[6/8] bg-gray-200">
-        <img
-          :src="actualProduct?.image"
-          alt=""
-          class="w-full h-full object-cover"
-        />
+      <div class="aspect-[8/10] bg-gray-200">
+        <img :src="actualProduct?.image" alt="" class="w-full h-full object-cover" />
       </div>
       <div class="text-center font-semibold mt-2">
-        <p>{{ actualProduct?.name }}</p>
+        <p :style="{ color: useColor('primary') }" class="text-2xl">{{ actualProduct?.name }}</p>
         <p>
           {{
             actualProduct?.price?.toLocaleString("en-US", {
@@ -34,10 +31,7 @@ const actualProduct = computed(() => {
         </p>
       </div>
     </div>
-    <div
-      v-else
-      class="aspect-[6/8] bg-gray-200 flex items-center justify-center"
-    >
+    <div v-else class="aspect-[6/8] bg-gray-200 flex items-center justify-center">
       <p>No product found</p>
     </div>
   </div>

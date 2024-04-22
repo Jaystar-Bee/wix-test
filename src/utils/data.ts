@@ -1,61 +1,81 @@
+import useColor from "../composables/useColor";
 import { COMPONENTS } from "./../types/enums";
 export default [
   {
     name: COMPONENTS.HEADER,
-    logo: "LOGO",
-    bgColor: "#000000",
-    textColor: "#ffffff",
-    linkColor: "#ffffff",
+    logo: {
+      text: "Vendaw",
+      url: ""
+    },
+    bgColor: "primary",
+    textColor: "tertiary",
+    linkColor: "tertiary",
     links: [
       {
-        name: "Products",
+        name: "Home",
         link: "/",
       },
       {
-        name: "Instagram",
-        link: "https://instagram.com",
+        name: "Products",
+        link: "/products",
       },
       {
-        name: "Twitter",
-        link: "https://instagram.com",
+        name: "Cart",
+        link: "/cart",
       },
       {
-        name: "Twitch",
-        link: "https://instagram.com",
+        name: "About",
+        link: "/about",
       },
     ],
+
+    socials: {
+      data: [
+        {
+          name: "facebook",
+          icon: "devicon:facebook",
+          link: "https://instagram.com/vendaw",
+        },
+        {
+          name: "twitter",
+          icon: "fa6-brands:square-x-twitter",
+          link: "https://twitter.com/vendaw",
+        },
+      ],
+      max_length: 4
+    },
   },
   {
     name: COMPONENTS.HERO,
     title: {
       text: "Our Hero Store",
-      color: "#000000",
+      color: "primary",
     },
     description: {
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique eligendi pariatur sunt quasi voluptatibus illum possimus sequi aspernatur nesciunt expedita!",
-      color: "#000000",
+      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique eligendi pariatur sunt quasi voluptatibus illum possimus sequi aspernatur nesciunt expedita! illum possimus sequi aspernatur nesciunt expedita! illum possimus sequi aspernatur nesciunt expedita! illum possimus sequi aspernatur nesciunt expedita! illum possimus sequi aspernatur nesciunt expedita!",
+      color: "tertiary",
     },
     button: {
       text: "See more",
-      bgColor: "#000000",
-      color: "#ffffff",
+      bgColor: "primary",
+      color: "tertiary"
     },
     bgImage: {
-      src: "https://res.cloudinary.com/dkbdpie8y/image/upload/v1711475481/70658b78a492cea9422350c2a9c3a500_ejqkf9.png",
+      src: "https://res.cloudinary.com/dkbdpie8y/image/upload/v1711631476/5615cad3cd9babd83a95074d63fb69e9_hzxa7u.png",
     },
   },
   {
     name: COMPONENTS.CARD,
     title: {
       text: "New Arrival",
-      color: "#000000",
+      color: "secondary",
     },
     cards: [
       {
         button: {
           text: "Nike Tint",
-          color: "#000000",
-          bgColor: "#ffffff",
+          color: "primary",
+          bgColor: "tertiary",
         },
         bgImage:
           "https://res.cloudinary.com/dkbdpie8y/image/upload/v1711476641/97183ff56cc4e7a1d983edbab82d1713_ldbe0t.png",
@@ -63,29 +83,11 @@ export default [
       {
         button: {
           text: "Nike R",
-          color: "#000000",
-          bgColor: "#ffffff",
+          color: "primary",
+          bgColor: "tertiary",
         },
         bgImage:
           "https://res.cloudinary.com/dkbdpie8y/image/upload/v1711476641/dfaef26ef17d50dba5f0cbdda9e7da0f_kbzuy5.png",
-      },
-      {
-        button: {
-          text: "Nike II",
-          color: "#000000",
-          bgColor: "#ffffff",
-        },
-        bgImage:
-          "https://res.cloudinary.com/dkbdpie8y/image/upload/v1711476641/05a746c73c0f1dd49d2ef6bb06ece4fb_zwzm73.png",
-      },
-      {
-        button: {
-          text: "Nike Mat",
-          color: "#000000",
-          bgColor: "#ffffff",
-        },
-        bgImage:
-          "https://res.cloudinary.com/dkbdpie8y/image/upload/v1711476641/704ddc3326a58d85bdba23a54ad1ca1f_p9qaz3.png",
       },
     ],
   },
@@ -107,14 +109,15 @@ export default [
     name: COMPONENTS.VIDEO,
     sectionName: {
       text: "Tagline",
-      color: "#000000",
+      color: "secondary",
     },
     title: {
       text: "Centra Series®",
-      color: "#000000",
+      color: "primary",
     },
     description: {
       text: " At vero eos et accusamus et iusto odio ducimus qui blanditiis praesentium voluptatum deleniti.",
+      color: "custom",
     },
     video: {
       src: "https://res.cloudinary.com/dkbdpie8y/video/upload/v1690056896/samples/sea-turtle.mp4",
@@ -127,44 +130,44 @@ export default [
         image: "/truck.svg",
         title: {
           text: "Free Shipping",
-          color: "#000000",
+          color: "primary",
         },
         description: {
           text: "Orders above $200",
-          color: "#aaaaaa",
+          color: "custom",
         },
       },
       {
         image: "/money.svg",
         title: {
           text: "Money-back",
-          color: "#000000",
+          color: "primary",
         },
         description: {
           text: "30 day Guarantee",
-          color: "#aaaaaa",
+          color: "custom",
         },
       },
       {
         image: "/phone.svg",
         title: {
           text: "Premium Support",
-          color: "#000000",
+          color: "primary",
         },
         description: {
           text: "Phone and email support",
-          color: "#aaaaaa",
+          color: "custom",
         },
       },
       {
         image: "/lock.svg",
         title: {
           text: "Secure Payments",
-          color: "#000000",
+          color: "primary",
         },
         description: {
           text: "Secured by Stripe",
-          color: "#aaaaaa",
+          color: "custom",
         },
       },
     ],

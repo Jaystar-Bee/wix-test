@@ -1,5 +1,6 @@
 <script setup>
 import { FormType } from "./../../types/enums";
+import useColor from "../../composables/useColor";
 import { useGeneralStore } from "./../../stores";
 import { inject } from "vue";
 const props = defineProps({
@@ -38,26 +39,16 @@ function deleteCard(event, cardName, index) {
 <template>
   <div class="py-20 px-10">
     <ul class="grid grid-cols-3 gap-4">
-      <li
-        v-for="(item, index) in data?.others"
-        :key="index"
+      <li v-for="(item, index) in data?.others" :key="index"
         @click="setForm($event, 'others', FormType.OTHERS, item, index)"
-        class="flex items-start gap-3 py-10 px-4 border-r last:border-r-0"
-      >
+        class="flex items-start gap-3 py-10 px-4 border-r last:border-r-0">
         <img :src="item?.image" alt="" class="w-8" />
         <div class="mt-1">
-          <h2
-            v-if="item?.title?.text"
-            class="whitespace-nowrap"
-            :style="{ color: item?.title.color }"
-          >
+          <h2 v-if="item?.title?.text" class="whitespace-nowrap" :style="{ color: useColor(item?.title.color) }">
             {{ item?.title.text }}
           </h2>
-          <p
-            v-if="item?.description?.text"
-            class="text-xs whitespace-nowrap text-gray-400 pt-2"
-            :style="{ color: item?.description.color }"
-          >
+          <p v-if="item?.description?.text" class="text-xs whitespace-nowrap text-gray-400 pt-2"
+            :style="{ color: useColor(item?.description.color) || '#000000' }">
             {{ item?.description?.text }}
           </p>
         </div>
