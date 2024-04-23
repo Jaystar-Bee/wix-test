@@ -8,6 +8,7 @@ const generalStore = useGeneralStore();
 const props = defineProps({
   data: Object,
   index: Number,
+  currentPage: String
 });
 
 const setCurrentForm = inject("setCurrentDetails");
@@ -32,7 +33,7 @@ function deleteCard(event, cardName, index) {
     cardName,
     index,
   };
-  generalStore.deleteCard(data);
+  generalStore.deleteCard(data, props.currentPage);
   setCurrentForm(undefined);
 }
 function addCard(cardName) {
@@ -45,7 +46,7 @@ function addCard(cardName) {
     sectionIndex: props?.index,
     formData,
   };
-  generalStore.addToCard(data);
+  generalStore.addToCard(data, props.currentPage);
   setForm(
     undefined,
     cardName,
@@ -59,27 +60,15 @@ function addCard(cardName) {
 <template>
   <div class="py-20 px-10">
     <ul class="grid grid-cols-3 gap-6 flex-wrap items-stretch">
-      <li
-        v-for="(product, index) in data?.products"
-        :key="product?.id"
-        class="relative"
-      >
-        <ProductItem
-          :product="product"
-          @click="setForm($event, 'products', FormType.PRODUCT, product, index)"
-        />
+      <li v-for="(product, index) in data?.products" :key="product?.id" class="relative">
+        <ProductItem :product="product" @click="setForm($event, 'products', FormType.PRODUCT, product, index)" />
         <div class="absolute -top-2 -right-2 text-red-500 text-xl">
-          <i
-            class="fa fa-times-circle cursor-pointer"
-            aria-hidden="true"
-            @click="deleteCard($event, 'products', index)"
-          ></i>
+          <i class="fa fa-times-circle cursor-pointer" aria-hidden="true"
+            @click="deleteCard($event, 'products', index)"></i>
         </div>
       </li>
-      <li
-        @click="addCard('products')"
-        class="border-2 border-dotted border-black rounded-lg flex justify-center items-center min-w-[17rem] w-[20rem] aspect-[5/6] overflow-hidden cursor-pointer"
-      >
+      <li @click="addCard('products')"
+        class="border-2 border-dotted border-black rounded-lg flex justify-center items-center min-w-[17rem] w-[20rem] aspect-[5/6] overflow-hidden cursor-pointer">
         <i class="fa fa-plus-circle text-4xl" aria-hidden="true"></i>
       </li>
     </ul>

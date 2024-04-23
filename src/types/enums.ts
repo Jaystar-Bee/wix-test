@@ -5,6 +5,9 @@ export enum COMPONENTS {
   PRODUCT = "PRODUCT",
   VIDEO = "VIDEO",
   OTHER = "OTHER",
+  FOOTER = "FOOTER",
+  FAQ = "FAQ",
+  TERMS = "TERMS",
 }
 
 export enum FormType {
@@ -16,4 +19,15 @@ export enum FormType {
   CARD = "card",
   OTHERS = "others",
   HEADER = "header",
+  FOOTER = "footer",
+  FAQ = "faq",
+  TERMS = "terms",
+}
+
+export enum PAGES {
+  HOME = "HOME",
+  PRODUCT = "PRODUCT",
+  ABOUT = "ABOUT",
+  CART = "CART",
+
 }

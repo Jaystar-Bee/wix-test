@@ -5,6 +5,9 @@ import CardSection from "./sections/CardSection.vue";
 import ProductSection from "./sections/ProductSection.vue";
 import VideoSection from "./sections/VideoSection.vue";
 import OtherSection from "./sections/OtherSection.vue";
+import TheFooter from "./sections/TheFooter.vue";
+import FAQSection from "./sections/FAQSection.vue"
+import TermsSection from "./sections/TermsSection.vue"
 
 import { computed } from "vue";
 import { COMPONENTS } from "../types/enums";
@@ -12,6 +15,7 @@ import { COMPONENTS } from "../types/enums";
 const props = defineProps({
   comp: Object,
   index: Number,
+  currentPage: String
 });
 
 const component = computed(() => {
@@ -25,6 +29,12 @@ const component = computed(() => {
     return ProductSection;
   } else if (props?.comp?.name === COMPONENTS.VIDEO) {
     return VideoSection;
+  } else if (props?.comp?.name === COMPONENTS.FOOTER) {
+    return TheFooter;
+  } else if (props?.comp?.name === COMPONENTS.FAQ) {
+    return FAQSection;
+  } else if (props?.comp?.name === COMPONENTS.TERMS) {
+    return TermsSection;
   } else {
     return OtherSection;
   }
@@ -32,5 +42,5 @@ const component = computed(() => {
 </script>
 
 <template>
-  <component :is="component" :data="comp" :index="index"></component>
+  <component :is="component" :data="comp" :index="index" :currentPage="currentPage"></component>
 </template>

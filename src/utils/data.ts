@@ -1,50 +1,5 @@
-import useColor from "../composables/useColor";
 import { COMPONENTS } from "./../types/enums";
 export default [
-  {
-    name: COMPONENTS.HEADER,
-    logo: {
-      text: "Vendaw",
-      url: ""
-    },
-    bgColor: "primary",
-    textColor: "tertiary",
-    linkColor: "tertiary",
-    links: [
-      {
-        name: "Home",
-        link: "/",
-      },
-      {
-        name: "Products",
-        link: "/products",
-      },
-      {
-        name: "Cart",
-        link: "/cart",
-      },
-      {
-        name: "About",
-        link: "/about",
-      },
-    ],
-
-    socials: {
-      data: [
-        {
-          name: "facebook",
-          icon: "devicon:facebook",
-          link: "https://instagram.com/vendaw",
-        },
-        {
-          name: "twitter",
-          icon: "fa6-brands:square-x-twitter",
-          link: "https://twitter.com/vendaw",
-        },
-      ],
-      max_length: 4
-    },
-  },
   {
     name: COMPONENTS.HERO,
     title: {
@@ -127,7 +82,7 @@ export default [
     name: COMPONENTS.OTHER,
     others: [
       {
-        image: "/truck.svg",
+        icon: "clarity:truck-line",
         title: {
           text: "Free Shipping",
           color: "primary",
@@ -138,7 +93,7 @@ export default [
         },
       },
       {
-        image: "/money.svg",
+        icon: "uil:money-bill",
         title: {
           text: "Money-back",
           color: "primary",
@@ -149,7 +104,7 @@ export default [
         },
       },
       {
-        image: "/phone.svg",
+        icon: "ph:phone",
         title: {
           text: "Premium Support",
           color: "primary",
@@ -160,7 +115,7 @@ export default [
         },
       },
       {
-        image: "/lock.svg",
+        icon: "mdi-light:lock",
         title: {
           text: "Secure Payments",
           color: "primary",

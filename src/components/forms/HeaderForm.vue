@@ -32,6 +32,7 @@ function addToSocial() {
 
   }
   if (formData?.socials?.data?.length >= formData?.socials?.max_length) {
+    alert("You can't have more than 4 socials")
     return
   }
   if (getSocialType("facebook") === -1) {

@@ -6,9 +6,28 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      alias: "/home",
       name: "Home",
       component: () => import("./../pages/TestView.vue"),
+    },
+    {
+      path: "/about",
+      name: "About",
+      component: () => import("./../pages/AboutView.vue"),
+    },
+    {
+      path: "/products",
+      name: "products",
+      component: () => import("./../pages/ProductsView.vue"),
+    },
+    {
+      path: "/products/:id",
+      name: "product-detail",
+      component: () => import("./../pages/ProductDetailView.vue"),
+    },
+    {
+      path: "/cart",
+      name: "Cart",
+      component: () => import("./../pages/CartView.vue"),
     },
     {
       path: "/test",

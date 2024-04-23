@@ -6,6 +6,7 @@ import { inject } from "vue";
 const props = defineProps({
   data: Object,
   index: Number,
+  currentPage: String
 });
 const generalStore = useGeneralStore();
 
@@ -31,7 +32,7 @@ function deleteCard(event, cardName, index) {
     cardName,
     index,
   };
-  generalStore.deleteCard(data);
+  generalStore.deleteCard(data, props.currentPage);
   setCurrentForm(undefined);
 }
 function addCard() {
@@ -49,7 +50,7 @@ function addCard() {
     sectionIndex: props?.index,
     formData,
   };
-  generalStore.addToCard(data);
+  generalStore.addToCard(data, props.currentPage);
   setForm(
     undefined,
     "cards",
