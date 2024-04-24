@@ -43,7 +43,7 @@ function addCard(cardName) {
   const data = {
     sectionName: props?.data?.name,
     cardName,
-    sectionIndex: props?.index,
+    sectionIndex: props?.index - 1,
     formData,
   };
   generalStore.addToCard(data, props.currentPage);

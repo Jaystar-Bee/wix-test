@@ -16,7 +16,7 @@ const props = defineProps({
         <div class=" flex justify-between">
             <div>
                 <h2 v-if="data?.logo?.text" class="text-4xl">{{ data?.logo?.text }}</h2>
-                <img v-else :src="data?.title?.url" alt="" class="h-14">
+                <img v-else :src="data?.logo?.url" alt="" class="h-14">
                 <p class="pt-2">{{ data?.description?.text }}</p>
             </div>
             <div>

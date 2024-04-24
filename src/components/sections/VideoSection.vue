@@ -12,7 +12,7 @@ function setForm(event, key, formType, data) {
   event.stopPropagation();
   const formDetail = {
     data,
-    sectionIndex: props?.index,
+    sectionIndex: props?.index - 1,
     sectionName: props?.data?.name,
     cardIndex: null,
     formType,

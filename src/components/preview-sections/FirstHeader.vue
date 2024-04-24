@@ -26,7 +26,8 @@ const themeColor = computed(() => {
       </router-link>
       <ul class="flex items-center space-x-8">
         <li v-for="link in data?.links" :key="link?.name">
-          <a v-if="link?.name" :href="link?.link" :style="{ color: data?.linkColor }">{{ link?.name }}</a>
+          <router-link v-if="link?.name" :to="link?.link" :style="{ color: data?.linkColor }">{{ link?.name
+            }}</router-link>
         </li>
       </ul>
       <ul v-if="data?.socials?.data?.length" class="flex items-center space-x-4">

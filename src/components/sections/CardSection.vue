@@ -15,7 +15,7 @@ function setForm(event, key, formType, data, cardIndex) {
   event?.stopPropagation();
   const formDetail = {
     data,
-    sectionIndex: props?.index,
+    sectionIndex: props?.index - 1,
     sectionName: props?.data?.name,
     cardIndex,
     formType,

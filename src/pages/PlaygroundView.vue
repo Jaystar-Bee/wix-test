@@ -16,7 +16,7 @@ import TermsForm from "../components/forms/TermForm.vue"
 
 import { ref, shallowRef, onMounted, computed, provide } from "vue";
 import { useGeneralStore } from "./../stores";
-import { FormType } from "../types/enums";
+import { COMPONENTS, FormType } from "../types/enums";
 
 const generalStore = useGeneralStore();
 
@@ -46,11 +46,16 @@ const components = computed(() => {
 
   const header = data?.header
   const footer = data?.footer
-  if (page?.haveHeader) {
-    page?.sections.unshift(header)
+
+  if (page?.sections[0]?.name !== COMPONENTS.HEADER) {
+    if (page?.haveHeader) {
+      page?.sections.unshift(header)
+    }
   }
-  if (page?.haveFooter) {
-    page?.sections.push(footer)
+  if (page?.sections[0]?.name !== COMPONENTS.FOOTER) {
+    if (page?.haveFooter) {
+      page?.sections.push(footer)
+    }
   }
   return page?.sections
 

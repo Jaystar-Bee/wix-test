@@ -2,6 +2,7 @@
 import { computed, ref } from "vue";
 import PreviewCover from "./../components/PreviewCover.vue";
 import { useGeneralStore } from "./../stores";
+import { COMPONENTS } from "../types/enums";
 
 const generalStore = useGeneralStore();
 
@@ -9,14 +10,20 @@ const currentPage = ref("ABOUT")
 const components = computed(() => {
     // generalStore.data
     const data = generalStore.data
-    const page = data?.pages?.find(page => page?.name === currentPage.value)
+    const page = JSON.parse(JSON.stringify(data?.pages?.find(page => page?.name === currentPage.value)))
+
     const header = data?.header
     const footer = data?.footer
-    if (page?.haveHeader) {
-        page?.sections.unshift(header)
+
+    if (page?.sections[0]?.name !== COMPONENTS.HEADER) {
+        if (page?.haveHeader) {
+            page?.sections.unshift(header)
+        }
     }
-    if (page?.haveFooter) {
-        page?.sections.push(footer)
+    if (page?.sections[0]?.name !== COMPONENTS.FOOTER) {
+        if (page?.haveFooter) {
+            page?.sections.push(footer)
+        }
     }
     return page?.sections
 

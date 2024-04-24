@@ -28,7 +28,7 @@ function setForm(event, key, formType, data, cardIndex) {
 function deleteCard(event, cardName, index) {
   event.stopPropagation();
   const data = {
-    sectionName: props?.data?.name,
+    sectionName: props?.data?.name - 1,
     sectionIndex: props?.index,
     cardName,
     index,
