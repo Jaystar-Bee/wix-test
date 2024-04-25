@@ -16,7 +16,7 @@ function setForm(event, key, formType, data, cardIndex) {
   event?.stopPropagation();
   const formDetail = {
     data,
-    sectionIndex: props?.index,
+    sectionIndex: props?.index - 1,
     sectionName: props?.data?.name,
     cardIndex,
     formType,
@@ -29,7 +29,7 @@ function deleteCard(event, cardName, index) {
   event.stopPropagation();
   const data = {
     sectionName: props?.data?.name,
-    sectionIndex: props?.index,
+    sectionIndex: props?.index - 1,
     cardName,
     index,
   };
@@ -47,12 +47,13 @@ function addCard(cardName) {
     formData,
   };
   generalStore.addToCard(data, props.currentPage);
+  // if
   setForm(
     undefined,
     cardName,
     FormType.PRODUCT,
     formData,
-    props.data?.products?.length - 1
+    props.data?.products?.length
   );
 }
 </script>
@@ -60,7 +61,7 @@ function addCard(cardName) {
 <template>
   <div class="py-20 px-10">
     <ul class="grid grid-cols-3 gap-6 flex-wrap items-stretch">
-      <li v-for="(product, index) in data?.products" :key="product?.id" class="relative">
+      <li v-for="(product, index) in data?.products?.data" :key="product?.id" class="relative">
         <ProductItem :product="product" @click="setForm($event, 'products', FormType.PRODUCT, product, index)" />
         <div class="absolute -top-2 -right-2 text-red-500 text-xl">
           <i class="fa fa-times-circle cursor-pointer" aria-hidden="true"

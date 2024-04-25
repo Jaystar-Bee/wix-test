@@ -19,7 +19,7 @@ const themeColor = computed(() => {
 <template>
   <header>
     <nav class="py-6 px-5 flex items-center justify-between"
-      :style="{ backgroundColor: themeColor.primary, color: themeColor?.tertiary }">
+      :style="{ backgroundColor: themeColor?.primary, color: themeColor?.tertiary }">
       <router-link to="/">
         <h2 v-if="data?.logo?.text">{{ data?.logo?.text }}</h2>
         <img v-else :src="data?.logo?.url" alt="LOGO" class="h-10" />

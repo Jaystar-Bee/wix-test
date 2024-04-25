@@ -28,7 +28,7 @@ function deleteCard(event, cardName, index) {
   event.stopPropagation();
   const data = {
     sectionName: props?.data?.name,
-    sectionIndex: props?.index,
+    sectionIndex: props?.index - 1,
     cardName,
     index,
   };
@@ -47,7 +47,7 @@ function addCard() {
   const data = {
     sectionName: props?.data?.name,
     cardName: "cards",
-    sectionIndex: props?.index,
+    sectionIndex: props?.index - 1,
     formData,
   };
   generalStore.addToCard(data, props.currentPage);
@@ -56,7 +56,7 @@ function addCard() {
     "cards",
     FormType.CARD,
     formData,
-    props.data?.cards?.length - 1
+    props.data?.cards?.data?.length
   );
 }
 </script>
@@ -74,7 +74,7 @@ function addCard() {
     <ul class="flex items-stretch gap-5 overflow-x-auto py-4 px-2" :class="{
       '': data?.cards?.length > 1,
     }">
-      <li v-for="(card, index) in data?.cards" :key="card?.title" class="relative"
+      <li v-for="(card, index) in data?.cards?.data" :key="card?.title" class="relative"
         @click="setForm($event, 'cards', FormType.CARD, card, index)">
         <div v-if="card?.bgImage || card?.button?.text"
           class="shadow-md rounded-lg min-w-[17rem] w-[17rem] relative aspect-[5/6] overflow-hidden">

@@ -25,40 +25,46 @@ export default [
       text: "New Arrival",
       color: "secondary",
     },
-    cards: [
-      {
-        button: {
-          text: "Nike Tint",
-          color: "primary",
-          bgColor: "tertiary",
+    cards: {
+      data: [
+        {
+          button: {
+            text: "Nike Tint",
+            color: "primary",
+            bgColor: "tertiary",
+          },
+          bgImage:
+            "https://res.cloudinary.com/dkbdpie8y/image/upload/v1711476641/97183ff56cc4e7a1d983edbab82d1713_ldbe0t.png",
         },
-        bgImage:
-          "https://res.cloudinary.com/dkbdpie8y/image/upload/v1711476641/97183ff56cc4e7a1d983edbab82d1713_ldbe0t.png",
-      },
-      {
-        button: {
-          text: "Nike R",
-          color: "primary",
-          bgColor: "tertiary",
+        {
+          button: {
+            text: "Nike R",
+            color: "primary",
+            bgColor: "tertiary",
+          },
+          bgImage:
+            "https://res.cloudinary.com/dkbdpie8y/image/upload/v1711476641/dfaef26ef17d50dba5f0cbdda9e7da0f_kbzuy5.png",
         },
-        bgImage:
-          "https://res.cloudinary.com/dkbdpie8y/image/upload/v1711476641/dfaef26ef17d50dba5f0cbdda9e7da0f_kbzuy5.png",
-      },
-    ],
+      ],
+      max_length: 10
+    },
   },
   {
     name: COMPONENTS.PRODUCT,
-    products: [
-      {
-        id: 1,
-      },
-      {
-        id: 5,
-      },
-      {
-        id: null,
-      },
-    ],
+    products: {
+      data: [
+        {
+          id: 1,
+        },
+        {
+          id: 5,
+        },
+        {
+          id: null,
+        },
+      ],
+      max_length: 6
+    },
   },
   {
     name: COMPONENTS.VIDEO,

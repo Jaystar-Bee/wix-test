@@ -169,7 +169,7 @@ export const useGeneralStore = defineStore("general", {
       if (formDetail?.cardIndex < 0 || formDetail?.cardIndex === null) {
         section[formDetail?.dataKey] = formDetail?.data;
       } else {
-        section[formDetail?.dataKey][formDetail?.cardIndex] = formDetail?.data;
+        section[formDetail?.dataKey].data[formDetail?.cardIndex] = formDetail?.data;
       }
 
       page.sections[formDetail?.sectionIndex] = section;
@@ -202,13 +202,13 @@ export const useGeneralStore = defineStore("general", {
     deleteCard(data: any, currentPage: string) {
       const page = this.data.pages.find((page: any) => page.name === currentPage);
       const section = page?.sections[data?.sectionIndex];
-      section[data?.cardName]?.splice(data?.index, 1);
+      section[data?.cardName]?.data?.splice(data?.index, 1);
       page.sections[data?.sectionIndex] = section;
     },
     addToCard(detail: any, currentPage: string) {
       const page = this.data.pages.find((page: any) => page.name === currentPage);
       const section = page?.sections[detail?.sectionIndex];
-      section[detail?.cardName]?.push(detail?.formData);
+      section[detail?.cardName]?.data?.push(detail?.formData);
       page.sections[detail?.sectionIndex] = section;
     },
   },

@@ -5,12 +5,15 @@ import ProductCard from "./../components/preview-sections/ProductCard.vue"
 
 
 import { useRoute } from "vue-router"
-import { computed, onMounted } from "vue"
+import { computed, onMounted, watch } from "vue"
 import { useProductStore } from "../stores/product"
+import { useCartStore } from "../stores/cart"
 import { useGeneralStore } from '../stores';
+import useColor from "../composables/useColor"
 
 const route = useRoute()
 const productStore = useProductStore()
+const cartStore = useCartStore()
 const generalStore = useGeneralStore()
 const headerDetail = computed(() => generalStore.getHeader)
 const footerDetail = computed(() => generalStore.getFooter)
@@ -20,8 +23,13 @@ const product = computed(() => {
 })
 const products = computed(() => productStore.products)
 
-onMounted(() => {
-    document.body.scrollTop = document.documentElement.scrollTop = 0
+watch(route, (val) => {
+    window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    });
+
 })
 
 </script>
@@ -43,7 +51,8 @@ onMounted(() => {
                     <p class="pt-10 leading-8">{{ product?.description }}</p>
 
                     <button
-                        class="px-10 py-3 mt-6 bg-green-900 hover:bg-green-700 text-white rounded-full border-none outline-none duration-300">Add
+                        class="px-10 py-3 mt-6 text-sm hover:opacity-90 text-white rounded-full border-none outline-none duration-300"
+                        :style="{ background: useColor('primary') }" @click="cartStore.addToCart(product)">Add
                         to Cart</button>
                 </div>
             </div>

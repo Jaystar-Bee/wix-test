@@ -17,9 +17,9 @@ const props = defineProps({
       </h2>
     </div>
     <ul class="flex items-stretch gap-10 overflow-x-auto py-4 px-2" :class="{
-      '': data?.cards?.length > 1,
+      '': data?.cards?.data?.length > 1,
     }">
-      <li v-for="card in data?.cards" :key="card?.title" class="relative">
+      <li v-for="card in data?.cards?.data" :key="card?.title" class="relative">
         <div v-if="card?.bgImage || card?.button?.text"
           class="shadow-md rounded-lg min-w-[17rem] w-[17rem] relative aspect-[5/6] overflow-hidden">
           <img :src="card?.bgImage" alt="" class="w-full h-full object-cover hover:scale-[105%] transition-all" />
