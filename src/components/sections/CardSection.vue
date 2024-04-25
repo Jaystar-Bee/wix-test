@@ -36,6 +36,9 @@ function deleteCard(event, cardName, index) {
   setCurrentForm(undefined);
 }
 function addCard() {
+  if (props.data?.cards?.data?.length >= props.data?.cards?.max_length) {
+    return alert(`You can have more than ${props.data?.cards?.max_length} arrivals`)
+  }
   const formData = {
     button: {
       text: "",
