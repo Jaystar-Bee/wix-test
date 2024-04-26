@@ -16,7 +16,7 @@ const props = defineProps({
             <h2 class=" text-2xl font-semibold">FAQ</h2>
         </div>
 
-        <ul class="mt-10">
+        <ul class="list-none mt-10">
             <FaqItem v-for="item in data.faqs" :key="item?.title" :item="item" class="mb-6 last:mb-0" />
         </ul>
     </section>

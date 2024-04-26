@@ -19,7 +19,7 @@ const products = computed(() => productStore.products)
 <template>
     <first-header :data="headerDetail" :index="1" />
     <main class="bg-gray-50 py-40 ">
-        <ul class="flex flex-wrap justify-center gap-10">
+        <ul class="list-none flex flex-wrap justify-center gap-10">
             <product-card v-for="product in products" :key="product?.name" :product="product" />
         </ul>
     </main>

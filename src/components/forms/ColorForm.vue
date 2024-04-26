@@ -1,10 +1,13 @@
 <script setup>
 import { useColorStore } from '../../stores/color';
-import { reactive } from "vue"
+import { reactive, watch } from "vue"
 
 const colorStore = useColorStore()
 
 const colors = reactive(colorStore.colors)
+watch(colors, (val) => {
+    localStorage.setItem("color", JSON.stringify(colors))
+})
 
 
 

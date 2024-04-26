@@ -68,7 +68,7 @@ watch(route, (val) => {
 
             <div>
                 <h2 class="text-2xl font-semibold">Related Products</h2>
-                <ul class="mt-10 flex flex-wrap gap-14">
+                <ul class="list-none mt-10 flex flex-wrap gap-14">
                     <product-card v-for="product in products?.slice(0, 5)" :key="product?.name" :product="product" />
                 </ul>
             </div>

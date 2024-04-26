@@ -152,7 +152,7 @@ const currentForm = computed(() => {
     </div>
     <div class="w-[30%] px-4 max-h-[100dvh] overflow-y-auto py-10">
       <h2 class="text-center text-2xl pb-6">Design Section</h2>
-      <ul class="mt-10 mb-4 flex justify-between text-lg">
+      <ul class="list-none mt-10 mb-4 flex justify-between text-lg">
         <li v-for="page in editablePages" :key="page?.name" class="cursor-pointer border-b" :class="{
           'text-green-700 border-green-700': page?.value === currentPage,
           'border-b-transparent': page?.value !== currentPage

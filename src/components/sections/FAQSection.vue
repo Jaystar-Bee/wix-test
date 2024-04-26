@@ -34,7 +34,7 @@ function setForm(event, key, formType, data) {
             <h2 class="text-2xl font-semibold">FAQ</h2>
         </div>
 
-        <ul class="mt-20">
+        <ul class="list-none mt-20">
             <FaqItem v-for="item in data.faqs" :key="item?.title" :item="item" class="mb-6 last:mb-0" />
         </ul>
     </section>

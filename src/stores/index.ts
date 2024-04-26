@@ -26,7 +26,7 @@ export const useGeneralStore = defineStore("general", {
                   color: "custom"
                 },
                 description: {
-                  text: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here'.  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam voluptatum perferendis corrupti ipsa inventore quam aliquid unde praesentium asperiores repellat impedit vel doloremque placeat aperiam molestias tempore deleniti fugiat voluptates illum delectus voluptatibus non, earum cum? Numquam eum commodi animi officiis delectus quibusdam quos. Mollitia dignissimos similique inventore eos minus, voluptates beatae nisi assumenda delectus perspiciatis quas ut fuga ducimus tempora perferendis! Molestias modi, et accusantium ab enim ducimus reprehenderit, rem dignissimos dolore natus mollitia! Exercitationem obcaecati delectus officiis nesciunt hic id, veritatis unde eveniet animi ratione harum ab aspernatur illo earum distinctio! Et quaerat temporibus ipsum esse, illo repellat beatae ducimus vero voluptatum odio fugiat dolore porro fuga. Deleniti, ducimus adipisci nobis at odit reiciendis aliquam nostrum? Quae dignissimos quos ducimus dolorum aliquid labore alias natus deserunt, sint itaque, dolorem officiis quis earum velit modi illum nemo! Fugit impedit labore illo nisi delectus, voluptate aut nostrum quo a harum voluptatibus numquam, quod quidem ratione eum eveniet possimus quas cum officiis consequuntur? Recusandae exercitationem dolorum nemo qui corporis! At, reprehenderit facilis nobis esse illo inventore. Dolorum, eum officia rerum voluptatem modi deserunt optio aliquam, iste consequatur possimus et debitis tempora temporibus ad expedita corporis magnam vero quam voluptas eius repudiandae! Consectetur sequi cupiditate ipsum non rerum dicta, qui reprehenderit necessitatibus esse aliquid ipsa, molestiae illo ab itaque mollitia, provident recusandae tempora tempore eaque deserunt. Voluptatem magnam quasi recusandae delectus. Similique odit voluptate soluta, cupiditate sapiente est impedit, quod nemo illum, ratione maiores. Est, id dolorum. Commodi quaerat doloribus fugit, praesentium voluptates quisquam ullam dolores adipisci, doloremque soluta necessitatibus molestias. Mollitia deserunt adipisci quidem vero dignissimos officia cum illo, commodi, in temporibus atque inventore deleniti aliquam error corrupti necessitatibus eum veritatis praesentium. Placeat sapiente vero nulla, harum dolor ratione eveniet quas totam delectus facilis labore deserunt, iure provident architecto aspernatur! Natus?",
+                  text: "<p>Write your terms 🎉</p>",
                   color: "custom"
                 }
               },
@@ -154,6 +154,7 @@ export const useGeneralStore = defineStore("general", {
 
       if (formDetail?.sectionName === COMPONENTS.HEADER || formDetail?.sectionName === COMPONENTS.FOOTER) {
         this.data[formDetail.sectionName?.toLowerCase()] = formDetail?.data;
+        localStorage.setItem("data", JSON.stringify(this.data))
         return;
       }
 
@@ -163,6 +164,7 @@ export const useGeneralStore = defineStore("general", {
       if (!formDetail?.dataKey) {
         section = formDetail?.data;
         page.sections[formDetail?.sectionIndex] = section;
+        localStorage.setItem("data", JSON.stringify(this.data))
         return;
       }
 
@@ -174,6 +176,7 @@ export const useGeneralStore = defineStore("general", {
 
       page.sections[formDetail?.sectionIndex] = section;
       // this.data[formDetail?.sectionIndex] = section;
+      localStorage.setItem("data", JSON.stringify(this.data))
     },
     getSection(name: string) {
       return this.data.find((section: any) => section.name === name);
@@ -204,12 +207,14 @@ export const useGeneralStore = defineStore("general", {
       const section = page?.sections[data?.sectionIndex];
       section[data?.cardName]?.data?.splice(data?.index, 1);
       page.sections[data?.sectionIndex] = section;
+      localStorage.setItem("data", JSON.stringify(this.data))
     },
     addToCard(detail: any, currentPage: string) {
       const page = this.data.pages.find((page: any) => page.name === currentPage);
       const section = page?.sections[detail?.sectionIndex];
       section[detail?.cardName]?.data?.push(detail?.formData);
       page.sections[detail?.sectionIndex] = section;
+      localStorage.setItem("data", JSON.stringify(this.data))
     },
   },
 });

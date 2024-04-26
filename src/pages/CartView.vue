@@ -25,7 +25,7 @@ const carts = computed(() => cartStore.carts)
     <main class="">
         <section class="py-40 px-20">
             <div v-if="carts?.length">
-                <ul class="flex flex-wrap gap-10">
+                <ul class="list-none flex flex-wrap gap-10">
                     <cart-card v-for="item in carts" :key="item?.product_id" :cart="item" />
                 </ul>
             </div>
@@ -40,7 +40,7 @@ const carts = computed(() => cartStore.carts)
         </section>
         <section class="py-20 bg-gray-50 px-20">
             <h2 class="text-2xl font-semibold">Related Products</h2>
-            <ul class="mt-6 flex flex-wrap gap-14">
+            <ul class="list-none mt-6 flex flex-wrap gap-14">
                 <product-card v-for="product in products?.slice(4, 8)" :key="product?.name" :product="product" />
             </ul>
         </section>

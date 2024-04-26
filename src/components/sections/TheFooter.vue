@@ -38,7 +38,7 @@ function setForm(event, key, formType, data) {
             </div>
             <div>
                 <h2 class="text-xl">Socials</h2>
-                <ul class="mt-4">
+                <ul class="list-none mt-4">
                     <li v-for="item in data?.socials?.data" class="pl-1 mb-2 last:mb-0">
                         <a :href="item?.link" class="flex items-center gap-2">
                             <Icon :icon="item?.icon" />

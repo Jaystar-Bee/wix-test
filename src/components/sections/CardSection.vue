@@ -74,7 +74,7 @@ function addCard() {
         {{ data?.title?.text }}
       </h2>
     </div>
-    <ul class="flex items-stretch gap-5 overflow-x-auto py-4 px-2" :class="{
+    <ul class="list-none flex items-stretch gap-5 overflow-x-auto py-4 px-2" :class="{
       '': data?.cards?.length > 1,
     }">
       <li v-for="(card, index) in data?.cards?.data" :key="card?.title" class="relative"

@@ -9,7 +9,7 @@ const props = defineProps({
 
 <template>
   <div class="py-20 px-10">
-    <ul class="grid grid-cols-4 gap-4">
+    <ul class="list-none grid grid-cols-4 gap-4">
       <li v-for="(item, index) in data?.others" :key="index"
         class="flex items-start gap-3 py-10 px-4 border-r last:border-r-0">
         <Icon :icon="item?.icon" :style="{ color: useColor('secondary') }" class="text-2xl mt-[1px]" />

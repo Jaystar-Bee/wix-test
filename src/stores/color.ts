@@ -10,15 +10,18 @@ export const useColorStore = defineStore("color", {
       },
     };
   },
-  actions: {
-    changePrimary(color: string) {
-      this.colors.primary = color;
-    },
-    changeSecondary(color: string) {
-      this.colors.secondary = color;
-    },
-    changeTertiary(color: string) {
-      this.colors.tertiary = color;
-    }
-  },
+  // actions: {
+  //   changePrimary(color: string) {
+  //     this.colors.primary = color;
+  //     localStorage.setItem("color", JSON.stringify(this.colors))
+  //   },
+  //   changeSecondary(color: string) {
+  //     this.colors.secondary = color;
+  //     localStorage.setItem("color", JSON.stringify(this.colors))
+  //   },
+  //   changeTertiary(color: string) {
+  //     this.colors.tertiary = color;
+  //     localStorage.setItem("color", JSON.stringify(this.colors))
+  //   }
+  // },
 });

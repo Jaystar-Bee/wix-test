@@ -16,7 +16,7 @@ const props = defineProps({
         {{ data?.title?.text }}
       </h2>
     </div>
-    <ul class="flex items-stretch gap-10 overflow-x-auto py-4 px-2" :class="{
+    <ul class=" list-none flex items-stretch gap-10 overflow-x-auto py-4 px-2" :class="{
       '': data?.cards?.data?.length > 1,
     }">
       <li v-for="card in data?.cards?.data" :key="card?.title" class="relative">

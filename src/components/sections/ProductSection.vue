@@ -63,7 +63,7 @@ function addCard(cardName) {
 
 <template>
   <div class="py-20 px-10">
-    <ul class="grid grid-cols-3 gap-6 flex-wrap items-stretch">
+    <ul class="list-none grid grid-cols-3 gap-6 flex-wrap items-stretch">
       <li v-for="(product, index) in data?.products?.data" :key="product?.id" class="relative">
         <ProductItem :product="product" @click="setForm($event, 'products', FormType.PRODUCT, product, index)" />
         <div class="absolute -top-2 -right-2 text-red-500 text-xl">

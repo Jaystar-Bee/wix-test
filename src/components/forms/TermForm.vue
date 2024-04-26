@@ -1,5 +1,7 @@
 <script setup>
-import { reactive, watch } from "vue";
+import { QuillEditor } from '@vueup/vue-quill'
+import '@vueup/vue-quill/dist/vue-quill.snow.css';
+import { onMounted, reactive, watch } from "vue";
 import { Icon } from '@iconify/vue';
 
 const emits = defineEmits(["updateData"]);
@@ -16,6 +18,10 @@ watch(formData, (val) => {
 watch(props, (val) => {
     formData = props?.data;
 });
+
+// watch(editor, (val) => {
+//     formData.description.text = val
+// })
 </script>
 
 <template>
@@ -30,9 +36,11 @@ watch(props, (val) => {
             </div>
             <div class="mt-2">
                 <h2 class="font-semibold">DESCRIPTION</h2>
-                <div class="mt-2">
-                    <textarea type="text" id="desText" v-model="formData.description.text"
-                        class="block border px-2 py-1 w-[90%] rounded-md mt-2"></textarea>
+                <div class="mt-2 !list-decimal">
+                    <QuillEditor theme="snow" v-model:content="formData.description.text" content-type="html"
+                        toolbar="minimal" />
+                    <!-- <textarea type="text" id="default" v-model="formData.description.text"
+                        class="block border px-2 py-1 w-[90%] rounded-md mt-2"></textarea> -->
                 </div>
             </div>
         </div>

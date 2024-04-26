@@ -15,7 +15,7 @@ const props = defineProps({
     <footer class="py-40 px-20" :style="{ background: useColor('primary'), color: useColor('tertiary') }">
         <div class=" flex justify-between">
             <div>
-                <h2 v-if="data?.logo?.text" class="text-4xl">{{ data?.logo?.text }}</h2>
+                <h2 v-if="data?.logo?.text" class="list-none text-4xl">{{ data?.logo?.text }}</h2>
                 <img v-else :src="data?.logo?.url" alt="" class="h-14">
                 <p class="pt-2">{{ data?.description?.text }}</p>
             </div>

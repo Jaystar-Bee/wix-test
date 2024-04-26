@@ -38,13 +38,13 @@ function setForm(event, key, formType, data) {
         <h2 v-if="data?.logo?.text">{{ data?.logo?.text }}</h2>
         <img v-else :src="data?.logo?.url" alt="LOGO" class="h-10" />
       </router-link>
-      <ul class="flex items-center space-x-8 pointer-events-none">
+      <ul class="list-none flex items-center space-x-8 pointer-events-none">
         <li v-for="link in data?.links" :key="link?.name">
           <a v-if="link?.name" :href="link?.link" :style="{ color: data?.linkColor }">{{ link?.name }}</a>
         </li>
       </ul>
 
-      <ul v-if="data?.socials?.data?.length" class="flex items-center space-x-4 pointer-events-none">
+      <ul v-if="data?.socials?.data?.length" class="list-none flex items-center space-x-4 pointer-events-none">
         <li v-for="link in data?.socials?.data" :key="link?.name">
           <a v-if="link?.name" :href="link?.link" :style="{ color: data?.linkColor }" class="text-xl">
             <Icon :icon="link?.icon" />

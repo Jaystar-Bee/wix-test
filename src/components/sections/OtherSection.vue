@@ -40,7 +40,7 @@ function deleteCard(event, cardName, index) {
 
 <template>
   <div class="py-20 px-10">
-    <ul class="grid grid-cols-3 gap-4">
+    <ul class="list-none grid grid-cols-3 gap-4">
       <li v-for="(item, index) in data?.others" :key="index"
         @click="setForm($event, 'others', FormType.OTHERS, item, index)"
         class="flex items-start gap-3 py-10 px-4 border-r last:border-r-0">
